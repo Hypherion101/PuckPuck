@@ -35,4 +35,6 @@ public class Pathfinding : MonoBehaviour
         // Move forward in the direction the object is facing
         transform.position += transform.up * moveSpeed * Time.deltaTime;
     }
+
+
 }

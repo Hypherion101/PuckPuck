@@ -10,6 +10,8 @@ TagManager:
   - West
   - Wall
   - Shield
+  - Enemy
+  - Spawner
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - UI
   - Ground
   - Player
-  - 
-  - 
+  - Spawner
+  - Enemy
   - 
   - 
   - 
