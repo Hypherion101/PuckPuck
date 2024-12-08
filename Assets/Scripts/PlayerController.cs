@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float forceRemainder;
     [SerializeField] private float speedMultiplier = 0.1f;
     [SerializeField] private float friction = 0.1f;
-    [SerializeField] private float frictionMultiplier = 0.9f;
+    [SerializeField] private float frictionMultiplier = 0.8f;
     [SerializeField] private Vector2 maxSpeed = new Vector2(30f, 30f);
     [SerializeField] private Vector2 minSpeed = new Vector2(30f, 30f);
     [SerializeField] private float shieldPushForce = 5f;
@@ -30,8 +30,13 @@ public class PlayerController : MonoBehaviour
             mouseUpPos = Input.mousePosition;
             Debug.Log("MouseUpPos: " + mouseUpPos);
             force = (mouseDownPos - mouseUpPos) * speedMultiplier;
-            forceRemainder = (force.x + force.y) - (maxSpeed.x + maxSpeed.y);
+            forceRemainder = Mathf.Abs((float)(0.01*(force.x + force.y) - (maxSpeed.x + maxSpeed.y)));
+            if (forceRemainder > 3)
+            {
+                forceRemainder = 3;
+            }
             Debug.Log("forceRemainder: " + forceRemainder);
+            Boost();
             velocity = force;
             if(velocity.x > maxSpeed.x)
             {
@@ -60,6 +65,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void Boost()
+    {
+        frictionMultiplier = 1f;
+        Invoke(nameof(Deboost), Mathf.Abs(forceRemainder));
+    }
+
+    private void Deboost()
+    {
+        frictionMultiplier = 0.8f;
+        Debug.Log("Friction Applied");
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

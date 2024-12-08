@@ -11,7 +11,8 @@ public class Death : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             Destroy(enemy);
-            Debug.Log("Dead");
+            GameManager.enemiesDefeated += 1;
+            Debug.Log("Score: " + GameManager.enemiesDefeated);
         }
     }
 }
