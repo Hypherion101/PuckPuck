@@ -9,7 +9,6 @@ TagManager:
   - South
   - West
   - Wall
-  - Shield
   layers:
   - Default
   - TransparentFX
