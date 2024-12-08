@@ -21,6 +21,4 @@ public class Pathfinding : MonoBehaviour
         // Move toward the target
         transform.position += direction.normalized * moveSpeed * Time.deltaTime;
     }
-
-
 }

@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Reverse direction upon collision and reduce velocity slightly
-        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Shield") || collision.gameObject.CompareTag("Spawner"))
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Shield"))
         {
             Vector2 normal = collision.contacts[0].normal; // Get collision normal
             velocity = Vector2.Reflect(velocity, normal);  // Reflect the velocity vector

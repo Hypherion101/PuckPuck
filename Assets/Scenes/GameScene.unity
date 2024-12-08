@@ -486,9 +486,9 @@ GameObject:
   - component: {fileID: 1007759956}
   - component: {fileID: 1007759955}
   - component: {fileID: 1007759958}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy Spawner NW
-  m_TagString: Spawner
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -798,9 +798,9 @@ GameObject:
   - component: {fileID: 1336696604}
   - component: {fileID: 1336696603}
   - component: {fileID: 1336696606}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy Spawner SW
-  m_TagString: Spawner
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1072,7 +1072,7 @@ MonoBehaviour:
   frictionMultiplier: 0.8
   maxSpeed: {x: 20, y: 20}
   minSpeed: {x: -20, y: -20}
-  shieldPushForce: 1.5
+  shieldPushForce: 1
 --- !u!50 &1342641861
 Rigidbody2D:
   serializedVersion: 4
@@ -1112,9 +1112,9 @@ GameObject:
   - component: {fileID: 1436894219}
   - component: {fileID: 1436894218}
   - component: {fileID: 1436894220}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy Spawner SE
-  m_TagString: Spawner
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1389,9 +1389,9 @@ GameObject:
   - component: {fileID: 1627217514}
   - component: {fileID: 1627217513}
   - component: {fileID: 1627217516}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy Spawner NE
-  m_TagString: Spawner
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
