@@ -10,6 +10,7 @@ TagManager:
   - West
   - Wall
   - Shield
+  - Pathfinder
   layers:
   - Default
   - TransparentFX

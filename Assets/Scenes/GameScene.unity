@@ -507,7 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 763207367876783633, guid: f3899c3de03534c388275ce89452dd99, type: 3}
   initialDelay: 1
-  spawnInterval: 20
+  spawnInterval: 10
   spawnRotationEuler: {x: 0, y: 0, z: -130}
 --- !u!212 &1007759956
 SpriteRenderer:
@@ -819,7 +819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 763207367876783633, guid: f3899c3de03534c388275ce89452dd99, type: 3}
   initialDelay: 16
-  spawnInterval: 20
+  spawnInterval: 10
   spawnRotationEuler: {x: 0, y: 0, z: -60}
 --- !u!212 &1336696604
 SpriteRenderer:
@@ -1068,11 +1068,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 0.05
-  friction: 0.1
+  friction: 0.05
   frictionMultiplier: 0.8
-  maxSpeed: {x: 20, y: 20}
-  minSpeed: {x: -20, y: -20}
-  shieldPushForce: 1
+  maxSpeed: {x: 25, y: 25}
+  minSpeed: {x: -25, y: -25}
+  shieldPushForce: 1.5
 --- !u!50 &1342641861
 Rigidbody2D:
   serializedVersion: 4
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 763207367876783633, guid: f3899c3de03534c388275ce89452dd99, type: 3}
   initialDelay: 11
-  spawnInterval: 20
+  spawnInterval: 10
   spawnRotationEuler: {x: 0, y: 0, z: 50}
 --- !u!212 &1436894219
 SpriteRenderer:
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 763207367876783633, guid: f3899c3de03534c388275ce89452dd99, type: 3}
   initialDelay: 6
-  spawnInterval: 20
+  spawnInterval: 10
   spawnRotationEuler: {x: 0, y: 0, z: 110}
 --- !u!212 &1627217514
 SpriteRenderer:
