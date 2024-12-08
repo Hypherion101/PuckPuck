@@ -7,6 +7,8 @@ public class Pathfinding : MonoBehaviour
     public float rotationSpeed = 360f; // Rotation speed (degrees per second)
     public float avoidanceStrength = 1f; // Strength of avoidance force
     public float avoidanceRadius = 0.5f;
+    public float wallCheckDistance = 0.6f; // Distance to check for walls (slightly larger than the step size)
+    public float wallPushbackStrength = 0.1f; // Strength to push back when stuck in a wall
 
     private void Awake()
     {
@@ -38,8 +40,16 @@ public class Pathfinding : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-        // Move forward in the direction the object is facing
-        transform.position += transform.up * moveSpeed * Time.deltaTime;
+        // Check for obstacles and move only if clear
+        Vector3 movement = transform.up * moveSpeed * Time.deltaTime;
+        if (!IsObstacleInPath(movement))
+        {
+            transform.position += movement;
+        }
+        else
+        {
+            ResolveCollision();
+        }
     }
 
     private Vector3 CalculateAvoidance()
@@ -61,10 +71,40 @@ public class Pathfinding : MonoBehaviour
         return avoidance * avoidanceStrength;
     }
 
+    private bool IsObstacleInPath(Vector3 movement)
+    {
+        // Perform a raycast to check for obstacles
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, movement.normalized, wallCheckDistance);
+        if (hit.collider != null && hit.collider.CompareTag("Wall"))
+        {
+            return true; // Obstacle detected
+        }
+        return false; // No obstacle in path
+    }
+
+    private void ResolveCollision()
+    {
+        // Check if the object is stuck in a wall and push it out slightly
+        Collider2D[] overlappingColliders = Physics2D.OverlapCircleAll(transform.position, wallCheckDistance);
+        foreach (Collider2D collider in overlappingColliders)
+        {
+            if (collider.CompareTag("Wall"))
+            {
+                // Push back along the normal of the wall
+                Vector2 pushDirection = (Vector2)(transform.position - collider.transform.position).normalized;
+                transform.position += (Vector3)(pushDirection * wallPushbackStrength);
+            }
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         // Visualize the avoidance radius in the editor
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, avoidanceRadius);
+
+        // Visualize the wall detection range
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position, transform.position + transform.up * wallCheckDistance);
     }
 }

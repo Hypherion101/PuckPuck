@@ -52,6 +52,8 @@ MonoBehaviour:
   rotationSpeed: 90
   avoidanceStrength: 1
   avoidanceRadius: 0.35
+  wallCheckDistance: 0.6
+  wallPushbackStrength: 0.5
 --- !u!70 &3741611388563466372
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
