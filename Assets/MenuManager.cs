@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // [SerializeField] private GameObject MainMenu;
+    [SerializeField] private GameObject GameUI;
+    // [SerializeField] private GameObject LoseUI;
+    // [SerializeField] private GameObject PauseUI;
+    // [SerializeField] private TextMeshProUGUI _stateText;
+    [SerializeField] private TextMeshProUGUI _scoreText;
+    // [SerializeField] private TextMeshProUGUI _highScoreText;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        _scoreText.text = "Score: " + GameManager.enemiesDefeated.ToString();
     }
 }
